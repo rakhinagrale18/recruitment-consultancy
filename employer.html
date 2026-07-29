@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire Top Talent | Employer Solutions - GenoHire</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #38bdf8;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--secondary);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+         .navbar {
+                background-color: #fff;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+
+            }
+
+            .nav-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 15px 5%;
+                gap: 1.25rem;
+            }
+
+            .logo {
+                flex-shrink: 0;
+            }
+
+            .logo img {
+                height: 80px;
+                width: 80px;
+            }
+
+            .logo span {
+                color: #20c997;
+            }
+
+            .nav-links {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+                list-style: none;
+                margin-left: auto;
+                flex-wrap: wrap;
+            }
+
+            .nav-links a {
+                text-decoration: none;
+                color: #333;
+                font-weight: 700;
+                transition: 0.3s;
+                font-size: 18px;
+                padding: 0.25rem 0;
+            }
+
+            .nav-links a:hover {
+                color: #0d6efd;
+            }
+
+            .btn-nav {
+                background-color: #0d6efd;
+                color: #fff;
+                padding: 10px 20px;
+                border-radius: 8px;
+                text-decoration: none;
+            }
+
+            .btn-nav:hover {
+                background-color: #0b5ed7;
+            }
+
+        /* --- HEADER & NAVBAR --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, #1e293b 100%);
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--light-gray);
+            margin-bottom: 2rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* --- STATS BAR --- */
+        .stats-bar {
+            background-color: var(--white);
+            padding: 2.5rem 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* --- WHY CHOOSE US SECTION --- */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--gray);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+            border-top-color: var(--primary);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* --- INTERACTIVE HIRING SOLUTIONS TAB SECTION --- */
+        .solutions-section {
+            background-color: var(--white);
+            padding: 5rem 2rem;
+        }
+
+        .solutions-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--light);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .tab-content {
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .tab-content.active {
+            display: grid;
+        }
+
+        .tab-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .tab-text p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .tab-features {
+            margin-bottom: 2rem;
+        }
+
+        .tab-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .tab-features i {
+            color: #10b981;
+        }
+
+        .tab-image {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            height: 350px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary);
+        }
+
+        /* --- CTA BANNER --- */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-container p {
+            margin-bottom: 2rem;
+            color: var(--light-gray);
+        }
+
+        .btn-light {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-light:hover {
+            background-color: var(--light);
+        }
+
+        /* --- FOOTER SECTION --- */
+        footer {
+            background-color: var(--secondary);
+            color: var(--light-gray);
+            padding: 5rem 2rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-col p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            width: 36px;
+            height: 36px;
+            background-color: #1e293b;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid #1e293b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 900px) {
+            .tab-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 2rem;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.4s ease-in-out;
+                margin-left: 0;
+            }
+
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER SECTION -->
+     <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="unnamed.webp">
+                </div>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="jobs.html">Job Listing</a></li>
+                    <li><a href="employer.html">Employers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">Signup</a></li>
+                    
+                </ul>
+            </div>
+        </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Build Your Dream Team with <span>Verified Top Talent</span></h1>
+            <p>Connect with millions of qualified professionals worldwide. Streamline your hiring workflow, reduce time-to-hire, and scale your business effortlessly.</p>
+            <div class="hero-btns">
+                <a href="#solutions" class="btn btn-primary">Explore Solutions</a>
+                <a href="#" class="btn btn-outline" style="color: white; border-color: white;">Schedule a Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>98%</h3>
+                <p>Client Retention Rate</p>
+            </div>
+            <div class="stat-item">
+                <h3>14 Days</h3>
+                <p>Average Time to Hire</p>
+            </div>
+            <div class="stat-item">
+                <h3>2.5M+</h3>
+                <p>Vetted Candidates</p>
+            </div>
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Enterprise Partners</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Why Forward-Thinking Companies Choose Us</h2>
+            <p>We combine advanced AI matching algorithms with expert human recruiters to deliver unmatched results.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <h3>Precision Matching</h3>
+                <p>Our intelligent filters and assessment tech surface candidates who precisely fit your technical and cultural requirements.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-clock"></i></div>
+                <h3>Accelerated Recruitment</h3>
+                <p>Skip the noise. Review pre-vetted shortlists within 48 hours and drastically cut down your vacancy lifecycle.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>Quality Assured</h3>
+                <p>Every candidate goes through comprehensive background checks, skill testing, and structural interviews before recommendation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SOLUTIONS SECTION -->
+    <section class="solutions-section" id="solutions">
+        <div class="solutions-container">
+            <div class="section-header">
+                <h2>Tailored Hiring Solutions</h2>
+                <p>Choose the engagement model that fits your organization's scale and hiring roadmap.</p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="switchTab(event, 'permanent')">Permanent Placement</button>
+                <button class="tab-btn" onclick="switchTab(event, 'contract')">Contract & Contingent</button>
+                <button class="tab-btn" onclick="switchTab(event, 'rpo')">Recruitment Process (RPO)</button>
+            </div>
+
+            <!-- Tab 1: Permanent -->
+            <div class="tab-content active" id="permanent">
+                <div class="tab-text">
+                    <h3>Permanent Staffing Solutions</h3>
+                    <p>Find dedicated full-time talent committed to driving long-term value and growth within your organization.</p>
+                    <ul class="tab-features">
+                        <li><i class="fa-solid fa-check"></i> End-to-end recruitment execution</li>
+                        <li><i class="fa-solid fa-check"></i> Rigorous technical and soft-skill assessments</li>
+                        <li><i class="fa-solid fa-check"></i> Replacement guarantee for added peace of mind</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Get Started</a>
+                </div>
+                <div class="tab-image">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+            </div>
+
+            <!-- Tab 2: Contract -->
+            <div class="tab-content" id="contract">
+                <div class="tab-text">
+                    <h3>Flexible Contract & Contingent Staffing</h3>
+                    <p>Scale your workforce up or down dynamically to handle seasonal workload peaks, urgent projects, or specialized temporary demands.</p>
+                    <ul class="tab-features">
+                        <li><i class="fa-solid fa-check"></i> On-demand vetted contractors ready to deploy</li>
+                        <li><i class="fa-solid fa-check"></i> Full payroll, tax, and compliance management handled</li>
+                        <li><i class="fa-solid fa-check"></i> Seamless transition to permanent options if required</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Hire Contractors</a>
+                </div>
+                <div class="tab-image">
+                    <i class="fa-solid fa-people-group"></i>
+                </div>
+            </div>
+
+            <!-- Tab 3: RPO -->
+            <div class="tab-content" id="rpo">
+                <div class="tab-text">
+                    <h3>Recruitment Process Outsourcing (RPO)</h3>
+                    <p>Transform your entire hiring engine by embedding our elite recruitment specialists into your internal HR infrastructure.</p>
+                    <ul class="tab-features">
+                        <li><i class="fa-solid fa-check"></i> Complete employer branding & pipeline development</li>
+                        <li><i class="fa-solid fa-check"></i> Cost-per-hire reduction up to 40%</li>
+                        <li><i class="fa-solid fa-check"></i> Scalable infrastructure built for massive expansion</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Consult an Expert</a>
+                </div>
+                <div class="tab-image">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION BANNER -->
+    <section class="cta-banner">
+        <div class="cta-container">
+            <h2>Ready to Transform Your Hiring Process?</h2>
+            <p>Post your first job opening today or speak with our strategic talent advisors to map out your custom hiring strategy.</p>
+            <a href="#" class="btn btn-light">Post a Job for Free</a>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo" style="color: white; margin-bottom: 1rem; display: inline-flex;">
+                    <i class="fa-solid fa-briefcase"></i>Geno<span>Hire</span>
+                </a>
+                <p>Empowering businesses around the globe to discover, hire, and retain exceptional talent with speed and confidence.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>For Employers</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Post a Job</a></li>
+                    <li><a href="#">Browse Candidates</a></li>
+                    <li><a href="#">Pricing Plans</a></li>
+                    <li><a href="#">Enterprise Solutions</a></li>
+                    <li><a href="#">Hiring Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Solutions</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Permanent Hiring</a></li>
+                    <li><a href="#">Contract Staffing</a></li>
+                    <li><a href="#">Executive Search</a></li>
+                    <li><a href="#">RPO Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p><i class="fa-solid fa-location-dot"></i> JayaNagara, Bangalore.</p>
+                <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fa-solid fa-envelope"></i> employers@genohire.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GenoHire Inc. All rights reserved.</p>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Security</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT INTERACTIONS -->
+    <script>
+        /* --- Mobile Hamburger Menu Toggle --- */
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = hamburger.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                } else {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        }
+
+        /* --- Interactive Solutions Tabs --- */
+        function switchTab(evt, tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show current tab and set button active
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
