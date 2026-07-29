@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Login
+         Page-Genohire Recruitment</title>
+</head>
+
+<style>
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Arial';
+    }
+
+    body {
+        background: #081827;
+        overflow-x: hidden;
+    }
+
+    .navbar {
+                background-color: #fff;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+
+            }
+
+            .nav-container {
+
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 5%;
+            }
+
+            .logo img {
+                height: 80px;
+                width: 80px;
+            }
+
+            .logo span {
+                color: #20c997;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 35px;
+                list-style: none;
+            }
+
+            .nav-links a {
+                text-decoration: none;
+                color: #333;
+                font-weight: 700;
+                transition: 0.3s;
+                font-size: 20px;
+            }
+
+            .nav-links a:hover {
+                color: #0d6efd;
+            }
+
+            .btn-nav {
+                background-color: #0d6efd;
+                color: #fff;
+                padding: 10px 20px;
+                border-radius: 8px;
+                text-decoration: none;
+            }
+
+            .btn-nav:hover {
+                background-color: #0b5ed7;
+            }
+
+    .modal-overlay {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100vh !important;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 99999 !important;
+        backdrop-filter: blur(2px);
+    }
+
+    .modal-overlay.show {
+        display: flex !important;
+    }
+
+    .modal-box {
+        background: white;
+        border-radius: 20px;
+        text-align: center;
+        width: 40%;
+        padding: 50px 30px 30px 30px;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        animation: pop 0.3s ease;
+        
+    }
+
+    @keyframes pop {
+        from {
+            transform: scale(0.8);
+            opacity: 0;
+        }
+
+        to {
+            transform: scale(1.3);
+            opacity: 1;
+        }
+    }
+
+    .tick-circle {
+        width: 90px;
+        height: 90px;
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0 4px 15px rgba(34,197,94,0.4);
+    }
+
+    .tick-circle svg {
+        width: 50px;
+        height: 50px;
+        fill: white;
+    }
+
+    .modal-box h2 {
+        margin-top: 30px;
+        font-size: 28px;
+        color:#333;
+        margin-bottom: 15px;
+    }
+    .modal-box p {
+        color: #175e05;
+        font-size: 15px;
+        line-height: 1.5;
+        margin-bottom: 25px;
+    }
+
+    .modal-btn {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(135deg, #22c55e,#16a34a);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .modal-btn:hover {
+        opacity: 0.9;
+    }
+
+    .login {
+        min-height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f3f4f6;
+        padding: 30px;
+        width: 100%;
+        
+    }
+
+    .login-box {
+        background: #fff;
+        padding: 40px;
+        border-radius: 17px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        width: 100%;
+        max-width: 500px;
+        height: 620px;
+    }
+
+    .login-box h2 {
+        text-align: center;
+        color: #1e3a8a;
+        margin-bottom: 25px;
+    }
+
+
+    .login-box input {
+        width: 100%;
+        padding: 12px 12px 12px 45px;
+        border: 2px solid #ccc;
+        border-radius: 9px;
+        font-size: 16px;
+       
+    }
+
+    .login-box .input-group {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .login-box .input-group input:focus {
+        outline: none;
+        border-color: #4165c9;
+    }
+
+    .input-group .input-icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #888;
+        font-size: 18px;
+        pointer-events: none;
+        padding-bottom: 13px;
+    }
+
+       .login-box a {
+        background: #ffcc00;
+        color: #1e3a8a;
+        display: inline-block;
+        border-radius: 10px;
+        padding: 7px 14px;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 600;
+        margin-left: 8px;
+    }
+
+    .login-box .error {
+        color: #eb0707;
+        font-size: 13px;
+        padding-left: 2px;
+        margin-bottom: 10px;
+    }
+
+    .login-box button {
+        width: 100%;
+        padding: 12px;
+        background: #1e3a8a;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .login-box button:hover {
+        background: #1e3a8a;
+    }
+
+    .login-box p {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 14px;
+    }
+
+    footer {
+        background: #111827;
+        color: #fff;
+        padding: 40px 20px 0;
+        height: 38vh;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 40px;
+    }
+
+    .footer-container h3 {
+        margin-bottom: 15px;
+        color: #facc15;
+    }
+
+    .footer-container p {
+        padding: 10px 0;
+    }
+
+    .copyright {
+        text-align:right;
+        margin-top: -80px;
+        margin-right: 30px;
+       margin-bottom: 60px;
+    }
+
+    .hamburger {
+        display:none;
+        font-size: 28px;
+        cursor: pointer;
+    }
+
+    @media (max-width:768px){
+
+        .hamburger {
+            display: block;
+        }
+
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 90px;
+            left: 0;
+            width: 100%;
+            background: white;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+            .copyright {
+            margin-top: 30px;
+            font-size: 14px;
+            width: 100%;
+        }
+    }
+</style>
+<body>
+
+    <!--navigation-->
+     <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="genohire recruitmnt logo.png">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="jobs.html">Job Listing</a></li>
+                    <li><a href="employer.html">Employers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">Signup</a></li>
+                </ul>
+              
+                <div class="hamburger" id="hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+
+    <!--Login Page-->
+    <section class="login">
+        <div class="login-box">
+            <h2>SIGNUP FORM</h2>
+            <form id="signupForm">
+
+                  <div class="input-group">
+                    <i class="fa fa-user input-icon"></i>
+                <input type="text" id="fullname" placeholder="Enter Name" required>
+                <div class="error" id="nameError">Please enter a valid name.</div>
+                </div>
+
+                  <div class="input-group">
+                     <i class="fa fa-envelope input-icon"></i>
+                <input type="email" id="email" placeholder="Enter Email" required>
+                <div class="error" id="emailError">Please enter a valid email.</div>
+                </div>
+
+                <div class="input-group">
+                     <i class="fa fa-phone input-icon"></i>
+                <input type="tel" id="phone" placeholder="Enter Number" required>
+                <div class="error" id="phoneError">Please enter 10 digit valid number.</div>
+                </div>
+
+                <div class="input-group">
+                     <i class="fa fa-lock input-icon"></i>
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <div class="error" id="passError">Password must be atleast 6 characters.</div>
+                </div>
+
+                 <div class="input-group">
+                     <i class="fa fa-lock input-icon"></i>
+                <input type="password" id="cpassword" placeholder="Enter your password" required>
+                <div class="error" id="cpassError">Passwords must be same.</div>
+                </div>
+
+                <button type="submit">Create Account</button>
+            </form>
+            <p>Already have an account?<a href="login.html"> Login</a></p>
+        </div>
+    </section>
+   
+    <!--Footer-->
+
+    <footer>
+        <div class="footer-container">
+            <div>
+                <h3>GenoHire</h3>
+                <p>Your trusted recruitment partner across India. Connecting talent with opprotunity.</p>
+            </div>
+            <div>
+                <h3>Contact Us</h3>
+                <p>&#9993; Email: info@genohire.com</p>
+                <p>&#124208; Phone: +123 34567 76543</p>
+                <p>Maharashtra, India</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <h4>&copy;2026 GenoHire Recruitments. | All Rights Reserved.</h4>
+        </div>
+    </footer>
+
+      <!--popup box-->
+
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-box">
+            <div class="tick-circle">
+                <svg viewBox=" 0 0 24 24">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+            </div>
+            <h2>SUCCESS</h2>
+            <p>Account Created Successfully! Welcome to GenoHire.<br>Let's start the journey.</p>
+            <button class="modal-btn" onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('successModal');
+
+        function closeModal(){
+            modal.classList.remove('show');
+            document.getElementById('signupForm').reset();
+        }
+
+        //form validation and pop box
+
+        document.getElementById('signupForm').addEventListener('submit',function(e){
+            e.preventDefault();
+            let valid = true;
+
+             const name = document.getElementById('fullname').value.trim();
+             const email = document.getElementById('email').value.trim(); 
+            const phone = document.getElementById('phone').value.trim();
+            const password = document.getElementById('password').value.trim();
+             const cpassword = document.getElementById('cpassword').value.trim();
+
+             //error hide first
+             document.querySelectorAll('.error').forEach(el => el.style.display = 'none');
+
+      
+            //check fields
+
+            if(name === ""){
+                document.getElementById('nameError').style.display= 'block';
+                 valid = false;
+            }
+
+
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if(!email.match(emailPattern)){
+                document.getElementById('emailError').style.display = 'block';
+                valid=false;
+            }
+
+            const phonePattern = /^[0-9]{10}$/;
+            if(!phone.match(phonePattern)){
+                document.getElementById('phoneError').style.display = 'block';
+                valid = false;
+            }
+
+            
+
+            if(password.length < 6){
+            document.getElementById('passError').style.display = 'block';
+            valid = false;
+        }
+
+        if(password !== cpassword){
+            document.getElementById('cpassError').style.display = 'block';
+            valid = false;
+        }
+
+        //if all ields valid then g for the pop up
+
+        if(valid){
+            modal.classList.add('show');
+        }
+        });
+
+        const hamburger = document.getElementById("hamburger");
+        const navLinks =
+        document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click",function(){
+            navLinks.classList.toggle("active");
+        });
+
+    </script>
+
+
+    
+</body>
+</html>
