@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang ="en">
+    <head>
+        <title>home page</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width , initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                scroll-behavior: smooth;
+            }
+
+            body {
+                color: #333;
+                background:linear-gradient(rgba(197, 224, 238, 0.8), rgba(250, 249, 252, 0.9));
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;    
+            }
+
+            .navbar {
+                background-color: #fff;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+
+            .nav-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 5%;
+                position: relative;
+                gap: 15px;
+            }
+
+
+            .logo img {
+                height: 80px;
+                width: 80px;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 35px;
+                list-style: none;
+            }
+
+            .nav-links a {
+                text-decoration: none;
+                color: #333;
+                font-weight: 700;
+                transition: 0.3s;
+                font-size: 20px;
+            }
+
+            .nav-links a:hover {
+                color: #0d6efd;
+            }
+
+         
+
+            .hero {
+                background:linear-gradient(rgba(37, 36, 48, 0.8),rgba(33,67,35,0.5)), url(https://media.licdn.com/dms/image/v2/D5612AQEmTGYNZD7vHA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1690615566830?e=2147483647&v=beta&t=AfuktBJOF4NCXNsz0KgvRD6p3gDxXIyI4uSp_q-6lXg) no-repeat center center/cover;
+                backdrop-filter: blur(10px);
+                height: 85vh;
+                text-align: center;
+                
+            }
+
+             .hero h1 {
+                font-size: 45px;
+                margin-bottom: 15px;
+                color: rgb(226, 226, 245);
+                margin-top: 90px ;
+            }
+
+            .hero p {
+                font-size: 25px;
+                margin-bottom: 30px;
+                color: white;
+            }
+
+            .btn-primary , .btn-secondary {
+                padding: 14px 28px;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: 700;
+                margin: 0 10px;
+                display: inline-block;
+            }
+
+            .btn-primary {
+                background-color: #fff;
+                color:#0d6efd;
+            }
+
+            .btn-secondary {
+                background-color: #fff;
+                color:#0d6efd;
+            } 
+
+            .btn-primary:hover , .btn-secondary:hover {
+                background-color: #0d6efd;
+                color: #fff;
+            }
+
+
+
+            .stats {
+                display: grid;
+                grid-template-columns: repeat(auto-fit , minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .stat-box {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 12px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+                text-align: center;
+                width:270px;
+                margin-left: 30px;
+
+
+            }
+
+            .stat-box h3 {
+                font-size: 30px;
+                color:#0d6efd;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            h2{
+                text-align: center;
+                font-size: 30px;
+                color:black;
+                margin-bottom: 40px;
+            }
+
+            .about-grid, .service-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit , minmax(250px, 1fr));
+                gap: 30px;
+                transition: transform 0.3s ease;
+                height: 200px;
+            }
+
+            .about-card, .service-card {
+                background-color:aliceblue;
+                padding: 25px;
+                border-radius: 12px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+                font-size: 22px;
+                text-align: center;
+               
+            }
+
+            .about-card:hover, .service-card:hover {
+                transform: translateY(-7px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            }
+
+
+            .job-card {
+                background:linear-gradient(135deg, rgba(109, 166, 240, 0.6), rgba(5, 102, 146, 0.4));
+                padding: 25px;
+                border-radius: 12px;
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                
+            }
+
+            .tag {
+                background-color: #e7f1ff;
+                color: #0d6efd;
+                padding: 5px 12px;
+                border-radius: 20px;
+                font-size: 14px;
+            }
+
+            .apply-btn {
+                background-color: darkblue;
+                color: #fff;
+                padding: 10px 20px;
+                border-radius: 8px;
+                text-decoration: none;
+                }
+
+            .apply-btn:hover {
+                background-color: #0b5ed7;
+            }
+
+            .center {
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            .center .btn-primary{
+                background-color: #0d6efd;
+                color: #fff;
+            }
+
+            .clients-logos {
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                gap: 30px;
+                background-color: #fff;
+                padding: 30px;
+                border-radius: 12px;
+                box-shadow: 0 5px 15px rgba(56, 53, 250, 0.4);
+                font-size: 27px;
+                text-align: center;
+                width: 100%;
+                margin-left: 0px;
+            }
+
+            .clients-logos .card {
+                background-color: aliceblue;
+                padding: 25px;
+                border-radius: 12px;
+                box-shadow: 0 5px 15px rgba(56, 53, 250, 0.4);
+                width: 90%;
+                margin-left: 10px;
+                height:250px;
+            }
+
+
+            .clients-logos img{
+                height:150px;
+                width:250px;
+                background: white;
+                object-fit: cover;
+                border-radius: 14px;
+                margin: 10px 0;
+            }
+
+                .container2 {
+                    border-radius: 20px;
+                    border: 3px solid rgb(33, 151, 230);
+                    width: 50%;
+                    padding: 40px;
+                    margin-left: 350px;
+                }
+                
+                .quick-links-bar {
+                    padding: 30px 20px;
+                    text-align: center;
+                   
+                }
+
+                .quick-links-bar h4 {
+                    color: #0d6efd;
+                    font-size: 20px;
+                    margin-bottom: 20px;
+                  
+                }
+
+                .quick-links {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 30px;
+                }
+                
+                .quick-links a {
+                    color: darkblue;
+                    text-decoration: none;
+                    font-size: 20px;
+                    font-weight: 600;
+                    transition: 0.3s;
+                }
+
+                .quick-links a:hover {
+                    color: #0d6efd;
+                    text-decoration: underline;
+                }
+          
+
+            footer {
+                background-color: rgb(3, 39, 71);
+                color: white;
+                text-align: center;
+                padding: 20px;
+                height: 70px;
+                font-size: 20px;
+            }
+
+            .hamburger {
+                display: none;
+                cursor: pointer;
+            }
+            
+
+            @media (max-width: 768px) {
+                .nav-links {
+                    display: none;
+                    position: absolute;
+                    top: 90px;
+                    left: 0;
+                    width: 100%;
+                    background-color: #fff;
+                    padding: 20px 0;
+                    flex-direction: column;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                    text-align: center;
+                }
+
+                .nav-links.active {
+                    display: flex;
+                }
+
+                .hamburger {
+                    display: block;
+                }
+
+                .stats {
+                    width: 100%;
+                }
+
+                .clients {
+                
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: 1fr;
+                }
+
+                .clients-logos {
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: 1fr;
+                }
+                
+
+                .service-card{
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: 1fr;
+                }
+
+                .services {
+                    margin-top: 200px;
+                }
+
+                .jobs{
+                    margin-top: 330px;
+                }
+                .job-card{
+                    padding: 10px;
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: 1fr;
+                }
+                .quick-links-bar{
+                    margin-top:-10px;
+                }
+               }
+ </style>
+
+    </head>
+    <body>
+
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="geno.png" alt="logo">
+                </div>
+                
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="jobs.html">Job Listing</a></li>
+                <li><a href="employer.html">Employers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Signup</a></li>
+            </ul>
+
+           <div class="hamburger" id="hamburger">
+            <i class="fa-solid fa-bars"></i>
+           </div>
+            </div>
+                
+        </nav>
+</div>
+
+        <section id="home" class="hero">
+           
+                <h1>Find Your Dream Job or Perfect Hire</h1>
+                <p>India's Trusted Recruitment Partner for IT, Finance & Healthcare.1000+ Placements Done</p>
+                <a href="jobs.html" class="btn-primary">Find Jobs</a>
+                <a href="contact.html" class="btn-secondary">Hire Now </a>
+            </div>
+
+           
+        </div>
+        </section>
+
+        <section class="stats">
+            <div class="stat-box">
+                <h3>1000+</h3>
+                <p>Placements</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>250+</h3>
+                <p>Companies</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>15+</h3>
+                <p>Industries</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>98%</h3>
+                <p>Client Satisfaction</p>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>Why Choose GenoHire?</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <h4>Fast Hiring</h4>
+                        <p>Average 15 days to fill any role. We deliver top talent fast.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <h4>Industry Experts</h4>
+                        <p>Dedicated recruiters for IT, BFSI, Healthcare and Manufacturing.</p>
+                </div>
+
+                <div class="about-card">
+                    <h4>Pan India Reach</h4>
+                    <p>Access to 2 Lakh+ verified candidates across India.</p>
+            </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <h3>Permanent Staffing</h3>
+                        <p>End-to-end hiring for full-time roles across all levels.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>Contract Staffing</h3>
+                        <p>Flexible workforce solutions for project-based recruitment.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Executive Search</h3>
+                    <p>C-level and leadership hiring with confidential approach.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Campus Recruitment</h3>
+                <p>Hire from top universities and colleges in India.</p>
+        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="jobs" class="jobs">
+            <div class="container">
+                <h2>Latest Job Openings</h2>
+                <div class="job-list">
+                    <div class="job-card">
+                        <h4>Senior Software Engineer</h4>
+                        <p><b>company:</b> TCS | <b>Location:</b> Nagpur | <b>Experience:</b> 3-5 years</p>
+                        <span class="tag">IT</span>
+                        <a href="jobs.html" class="apply-btn">Apply Now</a>
+                    </div>
+
+                    <div class="job-card">
+                        <h4>Hr Manager</h4>
+                        <p><b>company:</b> HDFC Bank | <b>Location:</b>Mumbai | <b>Experience:</b> 3-5 years</p>
+                        <span class="tag">Finance</span>
+                        <a href="jobs.html" class="apply-btn">Apply Now</a>
+                </div>
+
+                <div class="job-card">
+                    <h4>Sales Executive</h4>
+                    <p><b>company:</b> Infosys | <b>Location:</b> Pune | <b>Experience:</b> 3-5 years</p>
+                    <span class="tag">Sales</span>
+                    <a href="jobs.html" class="apply-btn">Apply Now</a>
+            </div>
+                </div>
+
+                <div class="center"><a href="jobs.html" class="btn-primary">View All Jobs</a></div>
+            </div>
+        </section>
+
+        <section id="clients" class="clients">
+            <div class="container">
+                <h2>Trusted By 250+ Companies</h2>
+                <div class="clients-logos">
+
+                    <div class="card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE3YAvOkAoRO2lpjTxsJi5QY5zwEwt0V4QarZtx4LavFxxPhexSibRpjbo&s=10"><br>TCS</div>
+                    <div class="card"><img src="https://i0.wp.com/www.freefonts.io/wp-content/uploads/2024/09/infosys-new-2.png?fit=780%2C511&ssl=1"><br>Infosys</div>
+                    <div class="card"><img src="https://i.pinimg.com/736x/1e/b4/93/1eb49385575175ab7f541d7000273a1b.jpg"><br>HDFC Bank</div>
+                    <div class="card"><img src="https://i.pinimg.com/474x/b9/0a/6c/b90a6cb1105c7b6346568084358f15f9.jpg"><br>Accenture</div>
+                    <div class="card"><img src="https://wiproconsumercare.com/wp-content/uploads/2020/09/Wipro-Logo-01-small.png"><br>Wipro</div>
+                    <div class="card"><img src="https://www.legaleraonline.com/h-upload/2025/09/01/1651875-cognizant.jpg"><br>Cognizant</div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="quick-links-bar">
+            <div class="container">
+                <h4>Quick Links </h4>
+                <div class="quick-links">
+                    <a href="about.html">About our company</a>
+                    <a href="services.html">Services we provide</a>
+                    <a href="jobs.html">Job Listing we have</a>
+                    <a href="employer.html">Employers</a>
+                    <a href="contact.html">Contact us</a>
+                    <a href="signup.html">Signup</a>
+                </div>
+            </div>
+        </section>
+
+      
+        <hr>
+        <footer>
+            <p>&copy; 2026 GenoHire Recruitment Consultancy. all rights reserved. | Nagpur, Maharashtra</p>
+        </footer>
+
+        <script>
+
+            
+             const navLinks = document.querySelector(".nav-links");
+             const hamburger = document.getElementById("hamburger");
+            
+             
+            hamburger.addEventListener("click",function(){
+                navLinks.classList.toggle("active");
+            }); 
+        </script>
+    </body>
+</html>
