@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenoHire Recruitments | Job Listings</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="jobcss.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="logo">
+       <a href="index.html"> <img src="jlogo.webp" alt="Logo"></a>
+        
+    </div>
+
+    <nav class="navbar" id="navbar">
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="jobs.html" class="active">Job Listings</a></li>
+            <li><a href="employer.html">Employers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Sign up</a></li>
+        </ul>
+
+    </nav>
+
+    <div class="menu-btn" id="menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>Find Your Dream Job</h1>
+
+        <p>
+            Explore hundreds of verified job opportunities from top employers.
+        </p>
+
+        <div class="hero-search">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search jobs, skills, companies..."
+            >
+
+            <button>
+                <i class="fas fa-search"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FILTERS ================= -->
+
+<section class="filters">
+
+    <div class="filter-box">
+
+        <select id="categoryFilter">
+
+            <option value="">All Categories</option>
+
+            <option>Software Development</option>
+
+            <option>Marketing</option>
+
+            <option>Finance</option>
+
+            <option>Human Resources</option>
+
+            <option>Healthcare</option>
+
+            <option>Sales</option>
+
+            <option>Engineering</option>
+
+            <option>Administration</option>
+
+        </select>
+
+    </div>
+
+    <div class="filter-box">
+
+        <select id="locationFilter">
+
+            <option value="">All Locations</option>
+
+            <option>Hyderabad</option>
+
+            <option>Bangalore</option>
+
+            <option>Chennai</option>
+
+            <option>Pune</option>
+
+            <option>Mumbai</option>
+
+            <option>Delhi</option>
+
+            <option>Remote</option>
+
+        </select>
+
+    </div>
+
+    <div class="filter-box">
+
+        <select id="experienceFilter">
+
+            <option value="">Experience</option>
+
+            <option>Fresher</option>
+
+            <option>1-3 Years</option>
+
+            <option>3-5 Years</option>
+
+            <option>5-8 Years</option>
+
+            <option>8+ Years</option>
+
+        </select>
+
+    </div>
+
+    <button id="clearFilters" class="clear-btn">
+
+        <i class="fa-solid fa-rotate-left"></i>
+
+        Clear
+
+    </button>
+
+</section>
+
+<!-- ================= MAIN CONTENT ================= -->
+
+<main class="jobs-wrapper">
+
+    <!-- LEFT PANEL -->
+
+    <section class="job-list-panel">
+
+        <div class="panel-title">
+
+            <h2>Latest Openings</h2>
+
+            <span id="jobCount">20 Jobs Found</span>
+
+        </div>
+
+        <div id="jobList" class="job-list">
+
+        </div>
+
+        <div class="pagination" id="pagination">
+
+        </div>
+
+    </section>
+
+    <!-- RIGHT PANEL -->
+
+    <aside class="job-details-panel">
+
+        <div class="job-placeholder" id="placeholder">
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            <h2>Select a Job</h2>
+
+            <p>
+                Click any job from the left panel to view
+                complete job details.
+            </p>
+
+        </div>
+
+        <div id="jobDetails" class="job-details">
+
+        </div>
+
+    </aside>
+
+</main>
+
+<!-- ================= APPLY MODAL ================= -->
+
+<div class="modal" id="applyModal">
+
+    <div class="modal-content">
+
+        <span class="close-modal">&times;</span>
+
+        <h2>Apply for Job</h2>
+
+        <form>
+
+            <div class="form-group">
+
+                <label>Full Name</label>
+
+                <input
+                    type="text"
+                    placeholder="Enter your name"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Email Address</label>
+
+                <input
+                    type="email"
+                    placeholder="Enter email"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Phone Number</label>
+
+                <input
+                    type="tel"
+                    placeholder="Enter phone number"
+                    required pattern="[0-9]{10}"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Upload Resume</label>
+
+                <input type="file">
+            </div>
+
+            <button type="submit" class="apply-submit">
+
+                Submit Application
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>GenoHire Recruitment</h3>
+
+            <p>
+                Connecting talented professionals with leading
+                employers across India.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h4>Quick Links</h4>
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="jobs.html">Jobs</a></li>
+
+                <li><a href="employer.html">Employers</a></li>
+
+                <li><a href="contact.html">Contact Us</a></li>
+
+            </ul>
+
+        </div>
+
+        <div>
+
+            <h4>Contact</h4>
+
+            <p>
+                <i class="fa-solid fa-phone"></i>
+                +91 9876543210
+            </p>
+
+            <p>
+                <i class="fa-solid fa-envelope"></i>
+                info@genohire.com
+            </p>
+
+        </div>
+
+        <div>
+
+            <h4>Follow Us</h4>
+
+            <div class="social-icons">
+
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+
+                <a href="https://in.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+
+                <a href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram"></i></a>
+
+                <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+
+        © 2026 GenoHire Recruitments. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+<!-- ================= JS ================= -->
+<script src="jobjs.js"></script>
+
+
+</body>
+</html>
